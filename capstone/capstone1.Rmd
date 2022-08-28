@@ -1,0 +1,80 @@
+---
+title: 'Google Data Analytics Capstone : How Can a Wellness Technology Company Play It Smart?'
+author: "soon kien yuan"
+date: "2022-08-18"
+output: html_document
+---
+
+# Scenario
+
+I'm a junior data analyst at Bellabeat, a high-tech maker of women's health goods. Bellabeat is a modest, successful startup with potential to grow in the global smart device industry. Bellabeat founders and CCO Urka Sren believes examining smart device fitness data might help the company develop. I have been requested to study smart device data for one of Bellabeat's products to learn how consumers use smart devices. The  insights will shape the company's marketing approach. I will offer your research and recommendations to Bellabeat's management team.
+
+# Introduction
+
+## About the company
+
+Bellabeat was formed by Urka Sren and Sando Mur. Sren used her artistic experience to make technology that encourages women worldwide. Bellabeat empowers women by collecting data on movement, sleep, stress, and reproductive health. Bellabeat was started in 2013 and has swiftly become a tech-driven women's wellness firm. Bellabeat had various offices and products by 2016. Bellabeat items are sold by a growing number of online shops in addition to their website. The corporation invests in radio, billboards, print, and TV, but focuses on internet marketing.
+
+## Products
+
+1.  **Bellabeat app**
+
+    The Bellabeat app provides users with health data related to their activity, sleep, stress, menstrual cycle, and mindfulness habits. This data can help users better understand their current habits and make healthy decisions. The Bellabeat app connects to their line of smart wellness products.
+
+2.  **Leaf**
+
+    Bellabeat's classic wellness tracker can be worn as a bracelet, necklace, or clip. The Leaf tracker connects to the Bellabeat app to track activity, sleep, and stress.
+
+3.  **Time**
+
+    This wellness watch combines the timeless look of a classic timepiece with smart technology to track user activity, sleep, and stress. The Time watch connects to the Bellabeat app to provide you with insights into your daily wellness.
+
+4.  **Spring**
+
+    This is a water bottle that tracks daily water intake using smart technology to ensure that you are appropriately hydrated throughout the day. The Spring bottle connects to the Bellabeat app to track your hydration levels.
+
+5.  **Bellabeat membership**
+
+    Bellabeat also offers a subscription-based membership program for users. Membership gives users 24/7 access to fully personalized guidance on nutrition, activity, sleep, health and beauty, and mindfulness based on their lifestyle and goals.
+
+# Data Analysis Process
+
+## 1.0 PHASE 1 :ASK
+
+First up, the analysts needed to define what the project would look like and what would qualify as a successful result. So, to determine these things, they **asked** effective questions and collaborated with leaders and managers who were interested in the outcome of their people analysis.
+
+-   Ask effective questions
+-   Define the problem
+-   Use structured thinking
+-   Communicate with others
+-   What is the problem you are trying to solve?
+
+### 1.0.1 Identify the business task
+
+The business task will be associated with a non-Bellabeat smart devices and analyze the smart device usage data in order to gain insight into how people are already using their smart devices.Then, using the data, generate recommendations for the Bellabeat marketing strategy team to understand the trends. These recommendations and trend insights will be used to enhance the features, functionality, and service quality of the Bellabeat app. So, the business task can be summed up as follows:
+
+1.  Analyze the non-Bellabeat smart device usage data in order to gain insight to help Bellabeat marketing strategy team to understand the trends.
+
+2.  Utilizing the trends and insights provided by smart device usage data in order to improve the features, functionality, and overall service quality of the Bellabeat app
+
+### 1.0.2 Consider key stakeholders
+
+**Urška Sršen:** Bellabeat's cofounder and Chief Creative Officer
+
+**Sando Mur:** Mathematician and Bellabeat's cofounder; key member of the Bellabeat executive team
+
+**Bellabeat marketing analytics team:** A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat's marketing strategy. You joined this team six months ago and have been busy learning about Bellabeat''s mission and business goals --- as well as how you, as a junior data analyst, can help Bellabeat achieve them.
+
+## 2.0 PHASE 2 : PREPARE
+
+• Understand how data is generated and collected
+
+• Identify and use different data formats, types, and structures
+
+• Make sure data is unbiased and credible
+
+• Organize and protect data
+
+This case study utilises FitBit Fitness Tracker Data that is publicly accessible on Kaggle. The dataset was collected based on the responses of thirty individuals who participated in a distributed survey conducted by Amazon Mechanical Turk between December 3 and December 5, 2016.
+
+The thirty people who participated in the survey are qualified Fitbit users who gave their approval to the submission of personal tracker data. This data included minute-by-minute output for tracking of physical activity, heart rate, and sleep.
