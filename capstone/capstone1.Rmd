@@ -129,21 +129,35 @@ library(tidyverse)
 #### Importing Data Sets
 
 ```{r}
-dailyActivity_merged <- read.csv("https://github.com/soonkienyuan/DataAnalytics_Capstone_case_study2/raw/main/datasets/dailyActivity_merged.csv")
+dailyActivity_merged <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\dailyActivity_merged.csv")
 
-dailyCalories_merged  <- read.csv("https://github.com/soonkienyuan/DataAnalytics_Capstone_case_study2/raw/main/datasets/dailyCalories_merged.csv")
+dailyCalories_merged  <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\dailyCalories_merged.csv")
 
-dailyIntensities_merged <- read.csv("https://github.com/soonkienyuan/DataAnalytics_Capstone_case_study2/raw/main/datasets/dailyIntensities_merged.csv")
+dailyIntensities_merged <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\dailyIntensities_merged.csv")
 
-dailySteps_merged <- read.csv("https://github.com/soonkienyuan/DataAnalytics_Capstone_case_study2/raw/main/datasets/dailySteps_merged.csv")
+dailySteps_merged <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\dailySteps_merged.csv")
 
-sleepDay_merged <- read.csv("https://github.com/soonkienyuan/DataAnalytics_Capstone_case_study2/blob/main/datasets/sleepDay_merged.csv")
+sleepDay_merged <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\sleepDay_merged.csv")
 
-weightLogInfo_merged <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\sleepDay_merged.csv")
+weightLogInfo_merged <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\weightLogInfo_merged.csv")
 ```
 
+#### Dataset structure
+
+##### **`dailyActivity_merged`**
+
 ```{r}
-colnames(weightLogInfo_merged)
+
+print(" struture of the dataset ")
+str(dailyActivity_merged)
+
+print(" struture of the dataset ")
+unique(dailyActivity_merged$Id)
+
+glimpse(dailyActivity_merged)
+
+as.data.frame(table(dailyActivity_merged$Id))
+
 ```
 
 #### Data merging and joining
