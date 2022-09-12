@@ -124,75 +124,284 @@ FitBit Fitness Tracker Data consists of 18 csv file in long format. The data sho
 
 ```{r message=FALSE, include=FALSE}
 library(tidyverse)
+library(skimr)
 ```
 
 #### Importing Data Sets
 
 ```{r}
-dailyActivity_merged <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\dailyActivity_merged.csv")
+dailyActivity_merged <- read.csv("https://raw.githubusercontent.com/soonkienyuan/DataAnalytics_Capstone_case_study2/main/datasets/dailyActivity_merged.csv")
 
-dailyCalories_merged  <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\dailyCalories_merged.csv")
+dailyCalories_merged  <- read.csv("https://raw.githubusercontent.com/soonkienyuan/DataAnalytics_Capstone_case_study2/main/datasets/dailyCalories_merged.csv")
 
-dailyIntensities_merged <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\dailyIntensities_merged.csv")
+dailyIntensities_merged <- read.csv("https://raw.githubusercontent.com/soonkienyuan/DataAnalytics_Capstone_case_study2/main/datasets/dailyIntensities_merged.csv")
 
-dailySteps_merged <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\dailySteps_merged.csv")
+dailySteps_merged <- read.csv("https://raw.githubusercontent.com/soonkienyuan/DataAnalytics_Capstone_case_study2/main/datasets/dailySteps_merged.csv")
 
-sleepDay_merged <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\sleepDay_merged.csv")
+sleepDay_merged <- read.csv("https://raw.githubusercontent.com/soonkienyuan/DataAnalytics_Capstone_case_study2/main/datasets/sleepDay_merged.csv")
 
-weightLogInfo_merged <- read.csv("C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\weightLogInfo_merged.csv")
+weightLogInfo_merged <- read.csv("https://raw.githubusercontent.com/soonkienyuan/DataAnalytics_Capstone_case_study2/main/datasets/weightLogInfo_merged.csv")
 ```
 
 #### Dataset structure
 
-##### **`dailyActivity_merged`**
+##### `dailyActivity_merged`
 
 ```{r}
-
-print(" struture of the dataset ")
-str(dailyActivity_merged)
-
-print(" struture of the dataset ")
-unique(dailyActivity_merged$Id)
-
-glimpse(dailyActivity_merged)
-
-as.data.frame(table(dailyActivity_merged$Id))
+# first view of the data
+head(dailyActivity_merged)
 
 ```
 
-#### Data merging and joining
+```{r}
+#structure of dataset
+str(dailyActivity_merged)
+```
+
+```{r}
+#skimming
+
+skim_without_charts(dailyActivity_merged)
+```
+
+```{r}
+#how many participant records exist in the datasets?
+
+as.data.frame(table(dailyActivity_merged$Id)) %>% rename(Id =Var1 )
+
+```
+
+```{r}
+#How many partcipants in the datasets
+
+length(table(dailyActivity_merged$Id))
+#or 
+n_distinct(dailyActivity_merged$Id)
+```
+
+##### `dailyCalories_merged`
+
+```{r}
+# first view of the data
+head(dailyCalories_merged)
+
+```
+
+```{r}
+#structure of dataset
+str(dailyCalories_merged)
+```
+
+```{r}
+#skimming
+
+skim_without_charts(dailyCalories_merged)
+```
+
+```{r}
+#how many participant records exist in the datasets?
+
+as.data.frame(table(dailyCalories_merged$Id)) %>% rename(Id =Var1 )
+
+```
+
+```{r}
+#How many partcipants in the datasets
+
+length(table(dailyCalories_merged$Id))
+#or 
+n_distinct(dailyCalories_merged$Id)
+```
+
+##### `dailyIntensities_merged`
+
+```{r}
+# first view of the data
+head(dailyIntensities_merged)
+
+```
+
+```{r}
+#structure of dataset
+str(dailyIntensities_merged)
+```
+
+```{r}
+#skimming
+
+skim_without_charts(dailyIntensities_merged)
+```
+
+```{r}
+#how many participant records exist in the datasets?
+
+as.data.frame(table(dailyIntensities_merged$Id)) %>% rename(Id =Var1 )
+
+```
+
+```{r}
+#How many partcipants in the datasets
+
+length(table(dailyIntensities_merged$Id))
+#or 
+n_distinct(dailyIntensities_merged$Id)
+```
+
+##### `dailySteps_merged`
+
+```{r}
+# first view of the data
+head(dailySteps_merged)
+
+```
+
+```{r}
+#structure of dataset
+str(dailySteps_merged)
+```
+
+```{r}
+#skimming
+
+skim_without_charts(dailySteps_merged)
+```
+
+```{r}
+#how many participant records exist in the datasets?
+
+as.data.frame(table(dailySteps_merged$Id)) %>% rename(Id =Var1 )
+
+```
+
+```{r}
+#How many partcipants in the datasets
+
+length(table(dailySteps_merged$Id))
+#or 
+n_distinct(dailySteps_merged$Id)
+```
+
+##### `sleepDay_merged`
+
+```{r}
+# first view of the data
+head(sleepDay_merged)
+
+```
+
+```{r}
+#structure of dataset
+str(sleepDay_merged)
+```
+
+```{r}
+#skimming
+
+skim_without_charts(sleepDay_merged)
+```
+
+```{r}
+#how many participant records exist in the datasets?
+
+as.data.frame(table(sleepDay_merged$Id)) %>% rename(Id =Var1 )
+
+```
+
+```{r}
+#How many partcipants in the datasets
+
+length(table(sleepDay_merged$Id))
+#or 
+n_distinct(sleepDay_merged$Id)
+```
+
+##### `weightLogInfo_merged`
+
+```{r}
+# first view of the data
+head(weightLogInfo_merged)
+
+```
+
+```{r}
+#structure of dataset
+str(weightLogInfo_merged)
+```
+
+```{r}
+#skimming
+
+skim_without_charts(weightLogInfo_merged)
+```
+
+
+```{r}
+#how many participant records exist in the datasets?
+
+as.data.frame(table(weightLogInfo_merged$Id)) %>% rename(Id =Var1 )
+
+```
+
+```{r}
+#How many partcipants in the datasets
+
+length(table(weightLogInfo_merged$Id))
+#or 
+n_distinct(weightLogInfo_merged$Id)
+```
+
+## 3.0 Process
 
 Noticed that he dailyActivity_merged datasets are just a composite of dailyCalories_merged dataset, dailyIntensities_merged dataset, and dailySteps_merged dataset.
 
-```{r}
-#Steps, Distance, Intensities, Calories
-head(dailyActivity_merged)
+Hence, dataset will used in this study would be `dailyActivity_merged`, `sleepDay_merged` and `weightLogInfo_merged`
+
+#### Loading Packages
+
+```{r message=FALSE, include=FALSE}
+library(tidyverse)
+library(janitor)
+library(skimr)
 ```
 
-Hence, I will join merge the `dailyActivity_merged` with `sleepDay_merged` and `weightLogInfo_merged`.
+### Checking for duplicte data
 
 ```{r}
-#Store the all datasets using list data type 
+dailyActivity_merged %>% get_dupes()
+``` 
 
-df_list <- list(dailyCalories_merged, dailyIntensities_merged, dailySteps_merged)
+```{r}
+sleepDay_merged %>% get_dupes()
+```
 
-df_dailyActivity<- df_list %>% reduce(full_join, by='Id') %>% select(-ActivityDay.y) %>% rename(Date=ActivityDay.x)
+```{r}
+weightLogInfo_merged %>% get_dupes()
+
+```
 
 
+I discovered three duplicate data in ``sleepDay_merged`` by using the ``getdupes()`` function in janitor package.
 
-merge(sleepDay_merged, df_dailyActivity, by = "Id",all = TRUE)
+By running `skim without charts` from the `skimr` package,found that `weightLogInfo_merged` fat variable contains 65 NA values.
 
+Hence, I decided to drop fat column in `weightLogInfo_merged` and duplicate data in  ``sleepDay_merged``
 
+### Remove duplicates and NA
+
+```{r}
+sleepDay_merged <- sleepDay_merged %>% distinct()
 ```
 
 ```{r}
 
-df_dailyActivity %>% select(-ActivityDay) %>% rename(Date = ActivityDate)
-
+weightLogInfo_merged <- subset(weightLogInfo_merged, select = -c(Fat))
 ```
 
-Store the all datasets using `list` data type and then
+### Tranforming data
 
-## 3.0 PHASE 3 : PROCESS
+The time and date are recorded together in the same column of both the sleep and weight databases, which I found interesting. If I do decide to use dates to analyse the data across the three datasets, it will be most helpful to divide them into ``Date`` and ``Time`` columns.
 
-df_list\<- list(dailyActivity_merged, dailyCalories_merged, dailyIntensities_merged, dailySteps_merged, sleepDay_merged, weightLogInfo_merged)
+```{r}
+weightLogInfo_merged <- weightLogInfo_merged %>% separate(Date, into=c("Date", "Time"), sep=" ")
+sleepDay_merged <- sleepDay_merged %>% separate(SleepDay, into=c("Date", "Time"), sep=" ")
+```
