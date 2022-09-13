@@ -120,14 +120,14 @@ FitBit Fitness Tracker Data consists of 18 csv file in long format. The data sho
 
 ### 2.3 How Data organized
 
-#### Loading Packages
+#### 2.3.1 Loading Packages
 
 ```{r message=FALSE, include=FALSE}
 library(tidyverse)
 library(skimr)
 ```
 
-#### Importing Data Sets
+#### 2.3.2 Importing Data Sets
 
 ```{r}
 dailyActivity_merged <- read.csv("https://raw.githubusercontent.com/soonkienyuan/DataAnalytics_Capstone_case_study2/main/datasets/dailyActivity_merged.csv")
@@ -143,9 +143,9 @@ sleepDay_merged <- read.csv("https://raw.githubusercontent.com/soonkienyuan/Data
 weightLogInfo_merged <- read.csv("https://raw.githubusercontent.com/soonkienyuan/DataAnalytics_Capstone_case_study2/main/datasets/weightLogInfo_merged.csv")
 ```
 
-#### Dataset structure
+### 2.4 Dataset structure
 
-##### `dailyActivity_merged`
+#### 2.4.1 `dailyActivity_merged`
 
 ```{r}
 # first view of the data
@@ -179,7 +179,7 @@ length(table(dailyActivity_merged$Id))
 n_distinct(dailyActivity_merged$Id)
 ```
 
-##### `dailyCalories_merged`
+#### 2.4.2 `dailyCalories_merged`
 
 ```{r}
 # first view of the data
@@ -213,7 +213,7 @@ length(table(dailyCalories_merged$Id))
 n_distinct(dailyCalories_merged$Id)
 ```
 
-##### `dailyIntensities_merged`
+#### 2.4.3 `dailyIntensities_merged`
 
 ```{r}
 # first view of the data
@@ -247,7 +247,7 @@ length(table(dailyIntensities_merged$Id))
 n_distinct(dailyIntensities_merged$Id)
 ```
 
-##### `dailySteps_merged`
+#### 2.4.4 `dailySteps_merged`
 
 ```{r}
 # first view of the data
@@ -281,7 +281,7 @@ length(table(dailySteps_merged$Id))
 n_distinct(dailySteps_merged$Id)
 ```
 
-##### `sleepDay_merged`
+#### 2.4.5 `sleepDay_merged`
 
 ```{r}
 # first view of the data
@@ -315,7 +315,7 @@ length(table(sleepDay_merged$Id))
 n_distinct(sleepDay_merged$Id)
 ```
 
-##### `weightLogInfo_merged`
+#### 2.4.6 `weightLogInfo_merged`
 
 ```{r}
 # first view of the data
@@ -334,7 +334,6 @@ str(weightLogInfo_merged)
 skim_without_charts(weightLogInfo_merged)
 ```
 
-
 ```{r}
 #how many participant records exist in the datasets?
 
@@ -350,13 +349,12 @@ length(table(weightLogInfo_merged$Id))
 n_distinct(weightLogInfo_merged$Id)
 ```
 
-## 3.0 Process
-
+## 3.0 PHRASE 3 : PROCESS
 Noticed that he dailyActivity_merged datasets are just a composite of dailyCalories_merged dataset, dailyIntensities_merged dataset, and dailySteps_merged dataset.
 
 Hence, dataset will used in this study would be `dailyActivity_merged`, `sleepDay_merged` and `weightLogInfo_merged`
 
-#### Loading Packages
+### 3.1 Loading Packages
 
 ```{r message=FALSE, include=FALSE}
 library(tidyverse)
@@ -364,11 +362,11 @@ library(janitor)
 library(skimr)
 ```
 
-### Checking for duplicte data
+### 3.2 Checking for duplicte data
 
 ```{r}
 dailyActivity_merged %>% get_dupes()
-``` 
+```
 
 ```{r}
 sleepDay_merged %>% get_dupes()
@@ -379,14 +377,13 @@ weightLogInfo_merged %>% get_dupes()
 
 ```
 
-
-I discovered three duplicate data in ``sleepDay_merged`` by using the ``getdupes()`` function in janitor package.
+I discovered three duplicate data in `sleepDay_merged` by using the `getdupes()` function in janitor package.
 
 By running `skim without charts` from the `skimr` package,found that `weightLogInfo_merged` fat variable contains 65 NA values.
 
-Hence, I decided to drop fat column in `weightLogInfo_merged` and duplicate data in  ``sleepDay_merged``
+Hence, I decided to drop fat column in `weightLogInfo_merged` and duplicate data in `sleepDay_merged`
 
-### Remove duplicates and NA
+### 3.3 Remove duplicates and NA
 
 ```{r}
 sleepDay_merged <- sleepDay_merged %>% distinct()
@@ -397,11 +394,161 @@ sleepDay_merged <- sleepDay_merged %>% distinct()
 weightLogInfo_merged <- subset(weightLogInfo_merged, select = -c(Fat))
 ```
 
-### Tranforming data
+### 3.4 Tranforming data
 
-The time and date are recorded together in the same column of both the sleep and weight databases, which I found interesting. If I do decide to use dates to analyse the data across the three datasets, it will be most helpful to divide them into ``Date`` and ``Time`` columns.
+The time and date are recorded together in the same column of both the sleep and weight databases, which I found interesting. If I do decide to use dates to analyse the data across the three datasets, it will be most helpful to divide them into `Date` and `Time` columns.
 
 ```{r}
 weightLogInfo_merged <- weightLogInfo_merged %>% separate(Date, into=c("Date", "Time"), sep=" ")
 sleepDay_merged <- sleepDay_merged %>% separate(SleepDay, into=c("Date", "Time"), sep=" ")
 ```
+
+## 4.0 PHRASE 4 :Analyze
+
+### 4.1 Loading Packages
+
+```{r message=FALSE, include=FALSE}
+library(tidyverse)
+
+library(ggplot2)
+
+
+library(reshape2) #melt the data to create heat map
+```
+
+### 4.2 Quick summary statistics
+
+For the `dailyActivity_merged`
+
+```{r}
+
+dailyActivity_merged %>%  
+  select(TotalSteps,
+         TotalDistance,
+         SedentaryMinutes,
+         Calories) %>%
+  summary()
+```
+
+For the `sleepDay_merged`
+
+```{r}
+sleepDay_merged %>%  
+  select(TotalSleepRecords,
+  TotalMinutesAsleep,
+  TotalTimeInBed) %>%
+  summary()
+```
+
+For the `weightLogInfo_merged`
+
+```{r}
+weightLogInfo_merged %>% 
+  select(WeightKg,BMI ) %>% 
+  summary()
+
+```
+
+### 4.3 Data Exploration
+
+#### 4.3.1 `dailyActivity_merged`
+
+```{r}
+ggplot(data=dailyActivity_merged, aes(x=TotalSteps, y=TotalDistance)) + geom_point() +geom_smooth(method=lm) 
+```
+
+```{r}
+ggplot(data=dailyActivity_merged, aes(x=TotalSteps, y=SedentaryMinutes)) + geom_point() + geom_smooth(method=lm) 
+```
+
+```{r}
+ggplot(data=dailyActivity_merged, aes(x=Calories, y=TotalDistance)) + geom_point() + geom_smooth(method=lm) 
+```
+
+Trends for dailyActivity_merged
+
+-   The correlation coefficient between `TotalSteps` and `TotalDistance` is extremely high. This means that the more steps the user walks, the farther they travel.
+
+-   The scatter plot between `TotalSteps` and `SedentaryMinutes` allows for the estimation of the following conclusion: the longer the `SedentaryMinutes`, the more likely the `totalsteps` have decreased. This means the longer Sedentary time of user, the more likely the users walk less.
+
+-   In other words, the longer a user spends on Sedentary activities, the less probable it is that they would engage in physical activity.
+
+-   The scatter plot between `Calories` and `TotalDistance` allows for the estimation of the following conclusion: the higher the TotalDistance, the more likely the `Calories` burn have increase. The greater the `TotalDistance`, the greater the likelihood that the Calories burned will increase.
+
+-   In other words, the longer a user walks, the greater the chance that they will have a caloric deficit.
+
+
+#### 4.3.2 ``sleepDay_merged``
+
+heatmap
+
+```{r}
+
+# corelation matrix
+cormat <- sleepDay_merged %>%  
+  select(TotalSleepRecords,
+         TotalMinutesAsleep,
+         TotalTimeInBed) %>%
+  cor() %>% round(2)
+
+
+#reshape the data for heatmap
+melted_cormat <- melt(cormat)
+
+#data visualization
+ggplot(data=melted_cormat,aes(x = Var1, y = Var2, fill = value))+
+  geom_tile()+scale_fill_gradient(high = "green", low = "red")+
+  ggtitle("sleepDay_merged dataset")+ 
+  theme(plot.title = element_text(size = 20, face = "bold"))+
+  geom_text(aes(label = round(value, 3)))+
+  scale_fill_continuous(low = "red", high = "lightgreen")
+```
+
+Trends for dailyActivity_merged
+
+- The correlation coefficient between ``TotalTimeInBed`` and ``TotalMinutesAsleep`` is very high and positive based on the heat map.
+
+-  other words, when sleep duration increases, so does total bedtime.
+
+#### 4.3.3 ``weightLogInfo_merged``
+
+```{r}
+ggplot(data=weightLogInfo_merged, aes(x=WeightKg, y=BMI)) + geom_point() + geom_smooth(method=lm) 
+```
+
+Trends for dailyActivity_merged
+
+- Nothing interesting found. 
+
+- BMI is the result measure that links body weight to height.
+
+### 4.4 Data merging
+
+I decide to merge the data between  ``dailyActivity_merged`` and ``sleepDay_merged``.
+
+The ``weightLogInfo merged`` will not be combined because there are only 8 users in this dataset, while the total number of users in all other datasets is 33.
+```{r}
+
+#put all data frames into list
+data_list <- list(dailyActivity_merged, sleepDay_merged)
+
+#merge all data frames in list
+combined_data<- data_list %>% reduce(full_join, by='Id')
+
+```
+
+```{r}
+ncol(combined_data)
+
+n_distinct(combined_data$Id)
+```
+
+## 5.0 PHRASE 5 : SHARE
+
+
+
+
+
+
+
+
