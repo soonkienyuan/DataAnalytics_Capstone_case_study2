@@ -349,7 +349,7 @@ length(table(weightLogInfo_merged$Id))
 n_distinct(weightLogInfo_merged$Id)
 ```
 
-## 3.0 PHRASE 3 : PROCESS
+## 3.0 PHASE 3 : PROCESS
 Noticed that he dailyActivity_merged datasets are just a composite of dailyCalories_merged dataset, dailyIntensities_merged dataset, and dailySteps_merged dataset.
 
 Hence, dataset will used in this study would be `dailyActivity_merged`, `sleepDay_merged` and `weightLogInfo_merged`
@@ -403,7 +403,7 @@ weightLogInfo_merged <- weightLogInfo_merged %>% separate(Date, into=c("Date", "
 sleepDay_merged <- sleepDay_merged %>% separate(SleepDay, into=c("Date", "Time"), sep=" ")
 ```
 
-## 4.0 PHRASE 4 :Analyze
+## 4.0 PHASE 4 :Analyze
 
 ### 4.1 Loading Packages
 
@@ -526,7 +526,11 @@ Trends for dailyActivity_merged
 
 I decide to merge the data between  ``dailyActivity_merged`` and ``sleepDay_merged``.
 
-The ``weightLogInfo merged`` will not be combined because there are only 8 users in this dataset, while the total number of users in all other datasets is 33.
+The ``weightLogInfo_merged`` will not be combined because there are only 8 users in this dataset, while the total number of users in all other datasets is 33.
+
+In contrast to other datasets, which have 33 users contributing information, the ``weightLogInfo_merged`` datasets only have 8 users contributing data, which makes the information irrelevant and unsuitable for usage.
+
+Hence, the weightLogInfo_merged
 ```{r}
 
 #put all data frames into list
@@ -543,8 +547,13 @@ ncol(combined_data)
 n_distinct(combined_data$Id)
 ```
 
-## 5.0 PHRASE 5 : SHARE
+## 5.0 PRASE 5 : SHARE
 
+```{r}
+write.csv(combined_data,"C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\combined_data.csv", row.names = FALSE)
+```
+
+Tableau will be used to finish this PHASE. 
 
 
 
