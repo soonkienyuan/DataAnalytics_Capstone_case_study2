@@ -549,15 +549,55 @@ n_distinct(combined_data$Id)
 
 ## 5.0 PRASE 5 : SHARE
 
+### 5.1 Tableau Dashboard
+
 ```{r}
 write.csv(combined_data,"C:\\Users\\soonk\\Documents\\GitHub\\DataAnalytics_Capstone_case_study2\\datasets\\combined_data.csv", row.names = FALSE)
 ```
 
-Tableau will be used to finish this PHASE. 
+Tableau will be used to finish part of this PHASE. Refer to the Tableau file (share.twbx).
+
+I created a dashbaord to make it easier to spot trends and obtain insights from the data.
 
 
 
+### 5.2 Minutes Asleep vs. Sedentary Minutes
 
 
+```{r}
+ggplot(data=combined_data, aes(x=TotalMinutesAsleep, y=SedentaryMinutes)) + 
+geom_point(color='darkblue') + geom_smooth() +
+  labs(title="Minutes Asleep vs. Sedentary Minutes")
+```
+**Interpretation**
+
+- Nothing special trends or findings found
+
+### 5.3 Total Minutes Asleep vs. Total Time in Bed
+
+```{r}
+ggplot(data=combined_data, aes(x=TotalMinutesAsleep, y=TotalTimeInBed)) + 
+  geom_point()+ labs(title="Total Minutes Asleep vs. Total Time in Bed")+geom_smooth()
+
+```
+**Interpretation**
+
+- Total time in bed seems positively related to total time asleep. So, to help Bellabeat users get better sleep and increase overall customer experiance, the Bellabeat should think about implementing a notification system that prompts them to lie down and relax.
+
+### 5.3 Total Steps vs. Calories
+```{r}
+ggplot(data=combined_data, aes(x=TotalSteps, y=Calories)) + 
+  geom_point() + geom_smooth() + labs(title="Total Steps vs. Calories")
+
+```
+
+
+- The scatter plot between `Calories` and `TotalStep` allows for the estimation of the following conclusion: the higher the Total Step, the more likely the `Calories` burn have increase.
+
+- In other words, the longer a user walks, the greater the chance that they will have a caloric deficit.
+
+- Consequently, a reward system should be considered to motivate users to walk and exercise more. Consider a comprehensive reward system with targeted tasks. For example, if your total steps exceed 5,000, you will receive 500 points. The points earned can be redeemed for rewards such as Bellabeat merchandise or discounts on other Bellabeat products, allowing the company to expand and promote the product line while increasing revenue and attracting potential customers.
+
+## 5.0 PRASE 6 : ACT
 
 
