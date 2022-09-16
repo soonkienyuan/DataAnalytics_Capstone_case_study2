@@ -10,7 +10,7 @@ output:
 
 # Scenario
 
-I'm a junior data analyst at Bellabeat, a high-tech maker of women's health goods. Bellabeat is a modest, successful startup with potential to grow in the global smart device industry. Bellabeat founders and CCO Urka Sren believes examining smart device fitness data might help the company develop. I have been requested to study smart device data for one of Bellabeat's products to learn how consumers use smart devices. The  insights will shape the company's marketing approach. I will offer your research and recommendations to Bellabeat's management team.
+I'm a junior data analyst at Bellabeat, a high-tech maker of women's health goods. Bellabeat is a modest, successful startup with potential to grow in the global smart device industry. Bellabeat founders and CCO Urka Sren believes examining smart device fitness data might help the company develop. I have been requested to study smart device data for one of Bellabeat's products to learn how consumers use smart devices. The  insights will shape the company's marketing approach. I will offer the research and recommendations to Bellabeat's management team.
 
 # Introduction
 
@@ -350,6 +350,7 @@ n_distinct(weightLogInfo_merged$Id)
 ```
 
 ## 3.0 PHASE 3 : PROCESS
+
 Noticed that he dailyActivity_merged datasets are just a composite of dailyCalories_merged dataset, dailyIntensities_merged dataset, and dailySteps_merged dataset.
 
 Hence, dataset will used in this study would be `dailyActivity_merged`, `sleepDay_merged` and `weightLogInfo_merged`
@@ -477,8 +478,7 @@ Trends for dailyActivity_merged
 
 -   In other words, the longer a user walks, the greater the chance that they will have a caloric deficit.
 
-
-#### 4.3.2 ``sleepDay_merged``
+#### 4.3.2 `sleepDay_merged`
 
 heatmap
 
@@ -506,11 +506,11 @@ ggplot(data=melted_cormat,aes(x = Var1, y = Var2, fill = value))+
 
 Trends for dailyActivity_merged
 
-- The correlation coefficient between ``TotalTimeInBed`` and ``TotalMinutesAsleep`` is very high and positive based on the heat map.
+-   The correlation coefficient between `TotalTimeInBed` and `TotalMinutesAsleep` is very high and positive based on the heat map.
 
--  other words, when sleep duration increases, so does total bedtime.
+-   other words, when sleep duration increases, so does total bedtime.
 
-#### 4.3.3 ``weightLogInfo_merged``
+#### 4.3.3 `weightLogInfo_merged`
 
 ```{r}
 ggplot(data=weightLogInfo_merged, aes(x=WeightKg, y=BMI)) + geom_point() + geom_smooth(method=lm) 
@@ -518,19 +518,20 @@ ggplot(data=weightLogInfo_merged, aes(x=WeightKg, y=BMI)) + geom_point() + geom_
 
 Trends for dailyActivity_merged
 
-- Nothing interesting found. 
+-   Nothing interesting found.
 
-- BMI is the result measure that links body weight to height.
+-   BMI is the result measure that links body weight to height.
 
 ### 4.4 Data merging
 
-I decide to merge the data between  ``dailyActivity_merged`` and ``sleepDay_merged``.
+I decide to merge the data between `dailyActivity_merged` and `sleepDay_merged`.
 
-The ``weightLogInfo_merged`` will not be combined because there are only 8 users in this dataset, while the total number of users in all other datasets is 33.
+The `weightLogInfo_merged` will not be combined because there are only 8 users in this dataset, while the total number of users in all other datasets is 33.
 
-In contrast to other datasets, which have 33 users contributing information, the ``weightLogInfo_merged`` datasets only have 8 users contributing data, which makes the information irrelevant and unsuitable for usage.
+In contrast to other datasets, which have 33 users contributing information, the `weightLogInfo_merged` datasets only have 8 users contributing data, which makes the information irrelevant and unsuitable for usage.
 
 Hence, the weightLogInfo_merged
+
 ```{r}
 
 #put all data frames into list
@@ -559,19 +560,17 @@ Tableau will be used to finish part of this PHASE. Refer to the Tableau file (sh
 
 I created a dashbaord to make it easier to spot trends and obtain insights from the data.
 
-
-
 ### 5.2 Minutes Asleep vs. Sedentary Minutes
-
 
 ```{r}
 ggplot(data=combined_data, aes(x=TotalMinutesAsleep, y=SedentaryMinutes)) + 
 geom_point(color='darkblue') + geom_smooth() +
   labs(title="Minutes Asleep vs. Sedentary Minutes")
 ```
+
 **Interpretation**
 
-- Nothing special trends or findings found
+-   Nothing special trends or findings found
 
 ### 5.3 Total Minutes Asleep vs. Total Time in Bed
 
@@ -580,24 +579,135 @@ ggplot(data=combined_data, aes(x=TotalMinutesAsleep, y=TotalTimeInBed)) +
   geom_point()+ labs(title="Total Minutes Asleep vs. Total Time in Bed")+geom_smooth()
 
 ```
+
 **Interpretation**
 
-- Total time in bed seems positively related to total time asleep. So, to help Bellabeat users get better sleep and increase overall customer experiance, the Bellabeat should think about implementing a notification system that prompts them to lie down and relax.
+-   Total time in bed seems positively related to total time asleep. So, to help Bellabeat users get better sleep and increase overall customer experiance, the Bellabeat should think about implementing a notification system that prompts them to lie down and relax.
 
 ### 5.3 Total Steps vs. Calories
+
 ```{r}
 ggplot(data=combined_data, aes(x=TotalSteps, y=Calories)) + 
   geom_point() + geom_smooth() + labs(title="Total Steps vs. Calories")
 
 ```
 
+**Interpretation**
 
-- The scatter plot between `Calories` and `TotalStep` allows for the estimation of the following conclusion: the higher the Total Step, the more likely the `Calories` burn have increase.
+-   The scatter plot between `Calories` and `TotalStep` allows for the estimation of the following conclusion: the higher the Total Step, the more likely the `Calories` burn have increase.
 
-- In other words, the longer a user walks, the greater the chance that they will have a caloric deficit.
+-   In other words, the longer a user walks, the greater the chance that they will have a caloric deficit.
 
-- Consequently, a reward system should be considered to motivate users to walk and exercise more. Consider a comprehensive reward system with targeted tasks. For example, if your total steps exceed 5,000, you will receive 500 points. The points earned can be redeemed for rewards such as Bellabeat merchandise or discounts on other Bellabeat products, allowing the company to expand and promote the product line while increasing revenue and attracting potential customers.
+-   Consequently, a reward system should be considered to motivate users to walk and exercise more. Consider a comprehensive reward system with targeted tasks. For example, if your total steps exceed 5,000, you will receive 500 points. The points earned can be redeemed for rewards such as Bellabeat merchandise or discounts on other Bellabeat products, allowing the company to expand and promote the product line while increasing revenue and attracting potential customers.
+
+### 5.4
+
+```{r}
+
+very_active_min <- sum(combined_data$VeryActiveMinutes)
+fairly_active_min <- sum(combined_data$FairlyActiveMinutes)
+lightly_activemin <- sum(combined_data$LightlyActiveMinutes)
+sedentary_min <- sum(combined_data$SedentaryMinutes)
+total_min <- very_active_min + fairly_active_min + lightly_activemin + sedentary_min
+
+
+min_list <- c(very_active_min,fairly_active_min,lightly_activemin,sedentary_min)
+
+lbls <- c("VeryActive","FairlyActive","LightlyActive","Sedentary")
+
+
+pct <- round(min_list/total_min*100)
+
+lbls <- paste(lbls, pct)
+lbls <- paste(lbls, "%", sep="")
+
+pie(min_list, labels = lbls, col = c("purple", "violetred1", "green3","cyan"), main = "Percentage of Activity in Minutes")
+```   
+
+**Interpretation**
+ 
+-Average user spends 79% of a time for Sedentary,Very active and fairly active only make up 2% of the entire time. Lightly active make up of 19% of the total time. 
+
+_ This is not recommended and not an ideal result for fitness tracking data.
+
 
 ## 5.0 PRASE 6 : ACT
+
+### 5.1 Revisiting Business Task
+
+The business task will be associated with a non-Bellabeat smart devices and analyze the smart device usage data in order to gain insight into how people are already using their smart devices.Then, using the data, generate recommendations for the Bellabeat marketing strategy team to understand the trends. These recommendations and trend insights will be used to enhance the features, functionality, and service quality of the Bellabeat app. So, the business task can be summed up as follows:
+
+1.  Analyze the non-Bellabeat smart device usage data in order to gain insight to help Bellabeat marketing strategy team to understand the trends.
+
+2.  Utilizing the trends and insights provided by smart device usage data in order to improve the features, functionality, and overall service quality of the Bellabeat app
+
+
+### 5.2 Trends Identified
+
+1. The longer a user spends on Sedentary activities, the less probable it is that they would engage in physical activity.
+
+2. The longer a user walks, the greater the chance that they will have a caloric deficit.
+
+3. Total time in bed seems positively related to total time asleep.
+
+4. Average user spends 79% of a time for Sedentary,Very active and fairly active only make up 2% of the entire time. Lightly active make up of 19% of the total time. 
+
+5. The participants averaged 25.19 BMI, which is overweight.
+
+6. On average, participants slept less than 8 hours.
+
+
+### 5.3 Recommendations
+
+#### 5.3.1 Complete Reward System
+
+- A system of rewards should be devised to recognise people who have done well.in an effort to entice a client
+
+- Reward should be given to those who attain various levels depending on the number of daily steps taken.
+
+- In order to advance to the next level, the user must maintain a certain level of activity for a certain amount of time (a month or a week). For each level, user would get a certain number of points redeemable for Bellabeat items or discounts on other Bellabeat products.
+
+- This strategy will indirectly promote and raise sales of the other Bellabeat product line while also enhancing its reputation in the marketplace.
+
+#### 5.3.2 Social Media Contest
+
+- In exchange for prizes and incentives, a social media contest encourages interaction, followers, leads, or brand exposure.
+
+-   Reward may give to the followers for liking, commenting, and sharing Bellabeat product content (facebook page, instagram, tiktok, Youtube and so on). This increases your brand's reach and buzz.
+
+- Like/share/comment to win a Bellabeat product
+
+- Creative video contests or Photo contest to win a Bellabeat product
+
+
+#### 5.3.3 In-App competition and rankings
+
+- Bellabeat could enable in-app tournaments against friends or users in the same city/state to encourage physical activities engagement.
+
+- Make an animated and creative total steps ranking page for users in the same city or state to get them to be more active and spend less time sitting (sedentary time).
+
+#### 5.3.4 Notification and Sleep time
+
+- Participants slept less than 8 hours on average, therefore Notification and Sleep Time should be a major issue.
+
+- Total time in bed is positively correlated with total time asleep, according to our results. They could set a bedtime and receive a reminder minutes before. Breathing advice, podcasts with relaxing music, and sleep techniques can help customers sleep.
+
+- Bellabeat should therefore create a system that includes sleep guidance, heart rate monitoring while sleeping, and a sleep reminder in order to improve the user's quality of sleep.
+
+### 5.4 Future Works
+
+- Larger, more representative sample size (with 95% confidence and 5% margin of error).
+
+- Random with no prejudice in selection.
+
+- At least 1 year should be spent collecting data.
+
+- More about the person's age, sex, height, etc.
+
+- More recent and current information or anything from the previous year is suggested. 
+
+- Have an original (First Party Data) data source, or verify primary/secondary data for integrity and trustworthiness.
+
+
 
 
