@@ -30,7 +30,11 @@ The report will describe the comprehensive and detailed approach to solving the 
 
 You may downlaod the report and open in Rstudio- [click here](https://github.com/soonkienyuan/DataAnalytics_Capstone_case_study2/blob/main/capstone/Report.Rmd)
 
-or The content accessible on the Rpubd website  -[Rpubs](http://rpubs.com/soonkienyuan/945467)
+or the content accessible on the Rpubd website  -[Rpubs](http://rpubs.com/soonkienyuan/945467)
+
+For the tablaue file, you may downlaod it and open it - [click here]([click here](https://github.com/soonkienyuan/DataAnalytics_Capstone_case_study2/blob/main/capstone/Share.twbx)) 
+
+or the content accessible on the Tableau public - [click here]([click here](https://public.tableau.com/shared/55R8XNHD2?:display_count=n&:origin=viz_share_link)) 
 
 ### one of the fascinating report section
 ### Data credibility
