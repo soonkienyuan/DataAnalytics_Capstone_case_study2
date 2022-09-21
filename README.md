@@ -6,6 +6,7 @@ This is the Googel Google Data Analytics Professional certificate Capstone proje
 
 Google suggest  that the data analyisis proccess consist of 6 phase which are ask, prepare, process, analyze, visualize and act.
 
+![Image](https://github.com/soonkienyuan/DataAnalytics_Capstone_case_study2/blob/main/Image/data_analysis_step.jpg?raw=true)
 
 ## Scenario
 
@@ -15,10 +16,16 @@ I'm a junior data analyst at women's health company Bellabeat. Bellabeat is a sm
 
 Sren and Mur formed Bellabeat. Sren used her artistic skills to encourage women globally. Bellabeat collects data on movement, sleep, stress, and reproductive health. Bellabeat is a tech-driven women's wellness company founded in 2013. 2016 saw Bellabeat offices and products. In addition to their website, more online shops sell Bellabeat products. The company invests in radio, billboards, print, TV, and internet marketing.
 
-## 
 
 ## Datasets
 This case study utilises FitBit Fitness Tracker Data that is publicly accessible on Kaggle. The dataset was collected based on the responses of thirty individuals who participated in a distributed survey conducted by Amazon Mechanical Turk between December 3 and December 5, 2016. 
 
-Although there are 18 datasets, I was only able to use 6 of them for this case study.
+Although there are 18 datasets, I was only able to use 5 of them for this case study.
+
+## The report
+
+The report is written in R markdown, with R code, markdown, visualisations, and tables contained within the document.
+
+The report will describe the comprehensive and detailed approach to solving the issue, as well as your analysis and findings.
+
 
