@@ -28,7 +28,7 @@ The report is written in R markdown, with R code, markdown, visualisations, and 
 
 The report will describe the comprehensive and detailed approach to solving the issue, as well as your analysis and findings.
 
-### A fascinating report section
+### one of the fascinating report section
 ### Data credibility
 
 **ROCC** will be applied to detect if there are data credibility issues.
