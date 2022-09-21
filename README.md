@@ -28,6 +28,10 @@ The report is written in R markdown, with R code, markdown, visualisations, and 
 
 The report will describe the comprehensive and detailed approach to solving the issue, as well as your analysis and findings.
 
+You may downlaod the report and open in Rstudio- [click here](https://github.com/soonkienyuan/DataAnalytics_Capstone_case_study2/blob/main/capstone/Report.Rmd)
+
+or The content accessible on the Rpubd website  -[Rpubs](http://rpubs.com/soonkienyuan/945467)
+
 ### one of the fascinating report section
 ### Data credibility
 
