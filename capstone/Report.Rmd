@@ -4,8 +4,8 @@ title: 'Google Data Analytics Capstone : How Can a Wellness Technology Company P
 author: "soon kien yuan"
 date: "2022-08-18"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 # Scenario
