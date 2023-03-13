@@ -62,7 +62,7 @@ The business task will be associated with a non-Bellabeat smart devices and anal
 
 ### 1.2 Consider key stakeholders
 
-**Urška Sršen:** Bellabeat's cofounder and Chief Creative Officer
+**Urska Srsen:** Bellabeat's cofounder and Chief Creative Officer sss
 
 **Sando Mur:** Mathematician and Bellabeat's cofounder; key member of the Bellabeat executive team
 
